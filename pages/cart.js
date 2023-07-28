@@ -7,9 +7,15 @@ import Table from "@/components/Table";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { styled } from "styled-components";
+
 const ColumnsWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 1120px) {
+    grid-template-columns: 1.3fr 0.7fr;
+  }
+
   gap: 40px;
   margin-top: 40px;
 `;
@@ -44,8 +50,15 @@ const Holder = styled.div`
   gap: 10px;
 `;
 const QuantityLabel = styled.span`
-  padding: 0 20px;
+  padding: 0 17px;
+  display: block;
+
+  @media screen and (min-width: 1120px) {
+    display: inline-block;
+    padding: 0 20px;
+  }
 `;
+
 export default function CartPage() {
   const { cartProducts, addProduct, removeProduct, clearCart } =
     useContext(CartContext);
@@ -74,14 +87,6 @@ export default function CartPage() {
       clearCart(); // Optionally, you can also clear the cart here.
     }
   }, []);
-  // useEffect(() => {
-  //   if (
-  //     typeof window !== "undefined" &&
-  //     window.location.href.includes("success")
-  //   ) {
-  //     clearCart();
-  //   }
-  // }, []);
   function moreOfThisProduct(id) {
     addProduct(id);
   }

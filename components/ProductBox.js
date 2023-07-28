@@ -36,15 +36,30 @@ const ProductInfoBox = styled.div`
 `;
 
 const PriceRow = styled.div`
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-between;
   margin-top: 2px;
+
+  @media screen and (min-width: 1120px) {
+    display: flex;
+    gap: 10px;
+  }
 `;
 
 const Price = styled.div`
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
+  text-align: right;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  @media (min-width: 769px) and (max-width: 1119px) {
+    text-align: right;
+  }
 `;
 export default function ProductBox({ _id, title, description, price, images }) {
   const { addProduct } = useContext(CartContext);
@@ -60,7 +75,7 @@ export default function ProductBox({ _id, title, description, price, images }) {
         <Title href={url}> {title}</Title>
         <PriceRow>
           <Price>₹{price}</Price>
-          <Button primary outline onClick={() => addProduct(_id)}>
+          <Button block primary outline onClick={() => addProduct(_id)}>
             <CartIcon />
             Add to cart
           </Button>

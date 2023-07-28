@@ -14,9 +14,18 @@ import { styled } from "styled-components";
 
 const ColWrapper = styled.div`
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 1120px) {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+  @media (min-width: 769px) and (max-width: 1119px) {
+    grid-template-columns: 1fr;
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
   gap: 40px;
-  margin-top: 40px;
+  margin: 40px 0;
 `;
 
 const PriceRow = styled.div`
