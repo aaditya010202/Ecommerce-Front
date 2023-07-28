@@ -43,7 +43,7 @@ const PriceRow = styled.div`
 
   @media screen and (min-width: 1120px) {
     display: flex;
-    gap: 10px;
+    gap: 80px;
   }
 `;
 
