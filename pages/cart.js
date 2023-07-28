@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Input from "@/components/Input";
 import Table from "@/components/Table";
 import axios from "axios";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 import { styled } from "styled-components";
 
@@ -86,7 +87,7 @@ export default function CartPage() {
       setIsPaymentSuccess(true);
       clearCart(); // Optionally, you can also clear the cart here.
     }
-  }, []);
+  }, [clearCart]);
   function moreOfThisProduct(id) {
     addProduct(id);
   }
